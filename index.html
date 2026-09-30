@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll-Driven Hero</title>
+  
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="hero" id="hero">
+    <div class="scene" id="scene">
+
+      
+      <div class="road" id="road">
+        <div class="trail-window">
+          <div class="trail" id="trail">
+            <div class="trail__text" id="trailText">
+              <h1 class="headline">WELCOME ITZFIZZ</h1>
+            </div>
+          </div>
+        </div>
+
+      
+        <svg class="car" id="car" viewBox="0 0 620 285" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="paint" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff9a3a" />
+              <stop offset=".5" stop-color="#f7841f" />
+              <stop offset="1" stop-color="#e2711a" />
+            </linearGradient>
+          </defs>
+          
+          <rect x="92" y="8" width="84" height="36" rx="12" fill="#141414" />
+          <rect x="92" y="241" width="84" height="36" rx="12" fill="#141414" />
+          <rect x="418" y="8" width="84" height="36" rx="12" fill="#141414" />
+          <rect x="418" y="241" width="84" height="36" rx="12" fill="#141414" />
+         
+          <g transform="translate(0 142.5) scale(1 1.2) translate(0 -142.5)">
+          
+          <path d="M28 120 C28 80 40 52 90 46 L330 40 C430 38 520 52 585 100 C610 118 612 128 612 142 C612 157 610 167 585 185 C520 233 430 247 330 245 L90 239 C40 233 28 205 28 165 Z" fill="url(#paint)" />
+          <path d="M120 58 L330 52 C420 50 500 62 560 96" stroke="#fff" stroke-opacity=".28" stroke-width="3" fill="none" />
+          
+          <path d="M40 58 C8 70 4 112 6 142 C4 173 8 215 40 227 L54 221 C32 203 28 176 29 142 C28 108 32 82 54 64 Z" fill="#232323" />
+          
+          <path d="M96 104 C96 96 104 92 114 92 L196 96 L196 189 L114 193 C104 193 96 189 96 181 Z" fill="#2c2c2c" />
+          <g stroke="#111" stroke-width="3" stroke-linecap="round">
+            <path d="M116 104V181" /><path d="M134 102V183" /><path d="M152 101V184" /><path d="M170 100V185" />
+          </g>
+          
+          <path d="M196 92 L338 86 C386 86 424 108 444 142 C424 177 386 199 338 199 L196 193 C178 165 178 120 196 92 Z" fill="#161616" />
+          <path d="M214 106 L332 100 C368 100 396 118 410 142 C396 166 368 184 332 184 L214 178 C205 158 205 126 214 106 Z" fill="#5b5b5b" />
+          <path d="M340 100 C374 103 398 120 410 142 C398 164 374 181 340 184 Z" fill="#7a7a7a" />
+          <path d="M236 116 L318 112 L318 172 L236 168 Z" fill="#4a4a4a" />
+          
+          <path d="M522 90 Q548 98 572 116" stroke="#101010" stroke-width="7" stroke-linecap="round" fill="none" />
+          <path d="M522 195 Q548 187 572 169" stroke="#101010" stroke-width="7" stroke-linecap="round" fill="none" />
+          
+          <path d="M396 34 L428 30 L432 42 L400 46 Z" fill="#f7841f" stroke="#7a3a08" stroke-width="1.5" />
+          <path d="M396 251 L428 255 L432 243 L400 239 Z" fill="#f7841f" stroke="#7a3a08" stroke-width="1.5" />
+          </g>
+        </svg>
+      </div>
+
+      
+      <ul class="cards">
+        <li class="card card--lime top">
+          <b><span data-count="58">58</span>%</b>
+          <span class="card__label">Increase in pick up point use</span>
+        </li>
+        <li class="card card--dark top">
+          <b><span data-count="27">27</span>%</b>
+          <span class="card__label">Increase in pick up point use</span>
+        </li>
+        <li class="card card--blue bottom">
+          <b><span data-count="23">23</span>%</b>
+          <span class="card__label">Decreased in customer phone calls</span>
+        </li>
+        <li class="card card--orange bottom">
+          <b><span data-count="40">40</span>%</b>
+          <span class="card__label">Decreased in customer phone calls</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="hint" id="hint">Scroll</p>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

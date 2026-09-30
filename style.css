@@ -1,0 +1,162 @@
+:root {
+  --page: #d1d1d1;
+  --road: #1f1f1f;
+  --trail: #45dc7f;
+  --ink: #111;
+
+
+  --car-w: clamp(260px, min(33vw, 78vh), 720px);
+  --car-h: calc(var(--car-w) * 0.46);
+  --road-h: calc(var(--car-w) * 0.49);
+  --lead: calc(var(--car-w) * 0.18); /* how far the green trail runs under the car */
+  --overlap: calc(var(--car-w) * 0.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  background: var(--page);
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: var(--road-h);
+}
+
+
+.road {
+  position: absolute;
+  inset: 0;
+  background: var(--road);
+}
+.trail-window { position: absolute; inset: 0; overflow: hidden; }
+
+
+.trail {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100%;
+  left: calc(var(--lead) - 100%);
+  overflow: hidden; 
+  background: var(--trail);
+  will-change: transform;
+}
+
+.trail__text {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100%;
+  left: calc(100% - var(--lead));
+  display: flex;
+  align-items: center;
+  padding-left: 4vw;
+  will-change: transform;
+}
+
+.headline {
+  font-size: 9.2vw;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.car {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: calc(var(--car-h) / -2);
+  width: var(--car-w);
+  height: var(--car-h);
+  will-change: transform;
+}
+
+
+.cards { list-style: none; position: absolute; inset: 0; pointer-events: none; }
+
+.card {
+  position: absolute;
+  padding: calc(var(--car-w) * .07) calc(var(--car-w) * .075);
+  border-radius: calc(var(--car-w) * .027);
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+.card b {
+  display: block;
+  font-size: calc(var(--car-w) * .13);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.card__label {
+  display: block;
+  margin-top: calc(var(--car-w) * .035);
+  font-size: calc(var(--car-w) * .042);
+}
+
+.card.top    { bottom: calc(100% - var(--overlap)); }
+.card.bottom { top:    calc(100% - var(--overlap)); }
+
+.card--lime   { left: 46vw;   background: #def64d; color: #111; }
+.card--dark   { left: 68vw;   background: #333;    color: #fff; }
+.card--blue   { left: 39.4vw; background: #6bc9ff; color: #111; }
+.card--orange { left: 61.9vw; background: #f0874b; color: #1a1a1a; }
+
+
+@media (min-width: 721px) {
+  .card--dark .card__label { font-size: calc(var(--car-w) * .037); }
+  .card--blue .card__label,
+  .card--orange .card__label { font-size: calc(var(--car-w) * .036); }
+}
+
+.hint {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .75rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+
+.js .card  { opacity: 0; }
+.js .scene { visibility: hidden; } /* main.js reveals it once start states are applied (no flash) */
+
+
+@media (max-width: 720px) {
+  :root { --car-w: 62vw; }
+  .headline { font-size: 9vw; letter-spacing: .02em; }
+  .card { white-space: normal; width: 45vw; padding: 4vw; border-radius: 3vw; }
+  .card b { font-size: 9vw; }
+  .card__label { font-size: 3.4vw; margin-top: 2vw; }
+  .card--lime   { left: 3vw; }
+  .card--dark   { left: 52vw; }
+  .card--blue   { left: 3vw; }
+  .card--orange { left: 52vw; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .js .card  { opacity: 1; }
+  .js .scene { visibility: visible; }
+}
